@@ -785,20 +785,21 @@ function renderSettings(){id('salaryIncome').value=data.salaryIncome||'';id('ins
 function updateNetIncomePreview(){const net=Math.max(0,(+id('salaryIncome').value||0)-(+id('insuranceDeduction').value||0)-(+id('welfareDeduction').value||0));id('netFixedIncome').textContent=money(net);return net}
 function newAnnualRow(type,name){return {id:uid(),type,name,months:Array(12).fill(0)}}
 function annualRows(){
- const starterRows=()=>[newAnnualRow('income','薪資收入'),newAnnualRow('income','投資收入'),newAnnualRow('income','其他收入'),...data.budgets.map(item=>newAnnualRow('expense',item.name))];
+ const starterRows=()=>[newAnnualRow('income','薪資收入'),newAnnualRow('income','投資收入'),newAnnualRow('income','其他收入'),...data.fixed.map(item=>String(item.name||'').trim()).filter(Boolean).map(name=>newAnnualRow('fixedExpense',name)),...data.budgets.map(item=>newAnnualRow('expense',item.name))];
  let rows=data.annualBudgets[selectedBudgetYear];
  if(!Array.isArray(rows)){rows=starterRows();data.annualBudgets[selectedBudgetYear]=rows}
  else{
   let changed=false;
   const categoryNames=data.budgets.map(item=>item.name);
-  ['income','expense'].forEach(type=>{
+  const fixedNames=data.fixed.map(item=>String(item.name||'').trim()).filter(Boolean);
+  ['income','fixedExpense','expense'].forEach(type=>{
    let visible=0;
    rows=rows.filter(row=>{
     if(row.type!==type)return true;
     visible++;
     const hasAmount=Array.isArray(row.months)&&row.months.some(value=>(+value||0)!==0);
     // 分類預算必須以目前「共用設定」為準；舊分類即使曾填過金額，也不再混入新版年度預算。
-    if(type==='expense'?categoryNames.includes(row.name):(visible<=3||hasAmount))return true;
+    if(type==='expense'?categoryNames.includes(row.name):type==='fixedExpense'?fixedNames.includes(row.name):(visible<=3||hasAmount))return true;
     changed=true;
     return false
    })
@@ -806,6 +807,7 @@ function annualRows(){
   const incomeDefaults=['薪資收入','投資收入','其他收入'];
   let incomeCount=rows.filter(row=>row.type==='income').length;
   while(incomeCount<3){rows.push(newAnnualRow('income',incomeDefaults[incomeCount]));incomeCount++;changed=true}
+  fixedNames.forEach(name=>{if(!rows.some(row=>row.type==='fixedExpense'&&row.name===name)){rows.push(newAnnualRow('fixedExpense',name));changed=true}});
   categoryNames.forEach(name=>{if(name&&!rows.some(row=>row.type==='expense'&&row.name===name)){rows.push(newAnnualRow('expense',name));changed=true}});
   if(changed){data.annualBudgets[selectedBudgetYear]=rows;persist()}
  }
