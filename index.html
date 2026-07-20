@@ -639,6 +639,60 @@ button,input,select,textarea,table{font-family:inherit!important}
   scrollbar-width:thin;
  }
 }
+/* 手機滿版並修正存款目標被平均壓扁 */
+@media(max-width:760px){
+ html,body{margin:0!important;background:#1b1426!important}
+ .app,.app:has(#home.active){
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding-left:0!important;
+  padding-right:0!important;
+  border:0!important;
+  box-shadow:none!important;
+  background:#1b1426!important;
+ }
+ .app:has(#home.active) nav{
+  width:100%!important;
+  max-width:none!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  border-radius:0 0 12px 12px;
+ }
+ #home.active .guardian-banner.integrated{
+  width:100%!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  border-left:0!important;
+  border-right:0!important;
+  border-radius:0!important;
+ }
+ #home.active .guardian-banner.integrated .hero{
+  grid-template-rows:auto minmax(0,1fr)!important;
+ }
+ #home.active .guardian-banner.integrated .hero .balance{
+  height:auto!important;
+  min-height:0!important;
+  flex:none!important;
+ }
+ #home.active .guardian-banner.integrated .hero .home-goals-card{
+  height:100%!important;
+  min-height:0!important;
+ }
+ #home.active .home-goal-list{
+  display:grid!important;
+  grid-template-rows:none!important;
+  grid-auto-rows:minmax(76px,auto)!important;
+  align-content:start!important;
+  gap:9px!important;
+  overflow-y:auto!important;
+ }
+ #home.active .home-goal-row{
+  min-height:76px!important;
+  height:auto!important;
+  flex:none!important;
+ }
+}
 </style>
 </head>
 <body><div class="magic-sky" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><main class="app"><button type="button" class="top-settings global-settings" aria-label="開啟共用設定" title="共用設定" onclick="openAppSettings()">⚙</button>
