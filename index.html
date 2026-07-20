@@ -458,6 +458,29 @@ dialog label,dialog .sub{color:#dfccdc}
  #home .home-goal-money small{font-size:11px}
  #home .home-goal-row .progress{height:7px}
 }
+/* 最終手機定位：餘額固定在兩位角色正中央 */
+@media(max-width:760px){
+ #home.active .guardian-banner.integrated>.guardian-treasure-amount{
+  display:block!important;
+  position:absolute!important;
+  z-index:8!important;
+  left:50%!important;
+  right:auto!important;
+  top:67px!important;
+  bottom:auto!important;
+  width:max-content!important;
+  margin:0!important;
+  transform:translateX(-50%)!important;
+  text-align:center!important;
+ }
+ #home.active .guardian-banner.integrated>.guardian-treasure-amount>.big{
+  display:block!important;
+  margin:0!important;
+  font-size:clamp(25px,8vw,34px)!important;
+  line-height:1!important;
+ }
+ #home.active .balance>#safeToSpend{display:none!important}
+}
 </style>
 </head>
 <body><div class="magic-sky" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><main class="app"><button type="button" class="top-settings global-settings" aria-label="開啟共用設定" title="共用設定" onclick="openAppSettings()">⚙</button>
@@ -535,8 +558,9 @@ function cancelCategorySettings(){if(settingsSnapshot)Object.assign(data,structu
 function saveCategorySettings(){const names=Array.from(document.querySelectorAll('#budgetSettings .setting-row input')).map(input=>input.value.trim()).filter(Boolean);if(!names.length)return alert('請至少保留一個花費類別');if(new Set(names).size!==names.length)return alert('花費類別名稱不能重複');const previous=categorySnapshot.map(item=>item.name);data.budgets=names.map((name,index)=>({name,icon:categorySnapshot[index]?.icon||icons[index%icons.length]}));previous.forEach((oldName,index)=>{const newName=names[index];if(!newName||newName===oldName)return;data.fixed.forEach(item=>{if(item.category===oldName)item.category=newName});data.transactions.forEach(item=>{if(item.category===oldName)item.category=newName});Object.values(data.annualBudgets).forEach(rows=>{if(Array.isArray(rows))rows.forEach(row=>{if(row.type==='expense'&&row.name===oldName)row.name=newName})})});persist();id('categorySettingsDialog').close();render();if(id('annualBudget').classList.contains('active')){renderSettings();renderAnnualBudget()}}
 function saveAllSettings(){syncFixedSettings();saveCategorySettings()}
 function renderSettingRows(type){const arr=type==='fixed'?data.fixed:data.budgets;if(type==='fixed'){const options='<option value="">選擇分類</option>'+data.budgets.map(item=>`<option value="${esc(item.name)}">${esc(item.name)}</option>`).join('');id('fixedSettings').innerHTML=arr.map(x=>`<div class="setting-row fixed-category-row"><input value="${esc(x.name)}" aria-label="固定支出名稱" placeholder="支出名稱"><select aria-label="固定支出分類">${options.replace(`value="${esc(x.category||'')}"`,`value="${esc(x.category||'')}" selected`)}</select><input type="number" min="0" value="${x.amount||''}" placeholder="每月金額"><button class="delete" onclick="removeSetting('fixed',${data.fixed.indexOf(x)})">×</button></div>`).join('')||'<div class="empty">尚未新增固定支出</div>';return}id('budgetSettings').innerHTML=arr.map((x,i)=>`<div class="setting-row category-only-row"><input value="${esc(x.name)}" aria-label="類別名稱" placeholder="類別名稱"><button class="delete" onclick="removeSetting('budget',${i})">×</button></div>`).join('')||'<div class="empty">尚未建立花費類別</div>'}
-function addSettingRow(type){(type==='fixed'?data.fixed:data.budgets).push(type==='fixed'?{name:'',category:'',amount:0}:{name:'新分類',icon:icons[data.budgets.length%icons.length]});renderSettingRows(type)}
-function removeSetting(type,i){(type==='fixed'?data.fixed:data.budgets).splice(i,1);renderSettingRows(type);if(type==='budget')renderSettingRows('fixed')}
+function captureSettingRows(type){if(type==='fixed'){data.fixed=Array.from(document.querySelectorAll('#fixedSettings .setting-row')).map(row=>({name:row.querySelector('input:not([type="number"])').value,category:row.querySelector('select').value,amount:+row.querySelector('input[type="number"]').value||0}));return}data.budgets=Array.from(document.querySelectorAll('#budgetSettings .setting-row')).map((row,index)=>({name:row.querySelector('input').value,icon:data.budgets[index]?.icon||icons[index%icons.length]}))}
+function addSettingRow(type){captureSettingRows('fixed');captureSettingRows('budget');(type==='fixed'?data.fixed:data.budgets).push(type==='fixed'?{name:'',category:'',amount:0}:{name:'新分類',icon:icons[data.budgets.length%icons.length]});renderSettingRows('budget');renderSettingRows('fixed')}
+function removeSetting(type,i){captureSettingRows('fixed');captureSettingRows('budget');(type==='fixed'?data.fixed:data.budgets).splice(i,1);renderSettingRows('budget');renderSettingRows('fixed')}
 function syncFixedSettings(){data.salaryIncome=+id('salaryIncome').value||0;data.insuranceDeduction=+id('insuranceDeduction').value||0;data.welfareDeduction=+id('welfareDeduction').value||0;data.income=Math.max(0,data.salaryIncome-data.insuranceDeduction-data.welfareDeduction);data.fixedSaving=+id('fixedSaving').value||0;data.purposeSaving=+id('purposeSaving').value||0;data.budgets=Array.from(document.querySelectorAll('#budgetSettings .setting-row')).map((row,index)=>({name:row.querySelector('input').value.trim(),icon:data.budgets[index]?.icon||icons[index%icons.length]})).filter(item=>item.name);data.fixed=Array.from(document.querySelectorAll('#fixedSettings .setting-row')).map(row=>({name:row.querySelector('input:not([type="number"])').value.trim(),category:row.querySelector('select').value,amount:+row.querySelector('input[type="number"]').value||0}))}
 function saveSettings(){syncFixedSettings();persist();render();updateNetIncomePreview();alert(`固定設定已儲存\n真正固定收入：${money(data.income)}`)}
 function applyAnnualFixedValue(rows,type,name,amount){if(!name)return;let row=rows.find(item=>item.type===type&&item.name.trim()===name);if(!row&&amount<=0)return;if(!row){row=newAnnualRow(type,name);rows.push(row)}row.months=Array(12).fill(amount)}
