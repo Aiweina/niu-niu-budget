@@ -155,9 +155,24 @@ function annualRows(){
  let rows=data.annualBudgets[selectedBudgetYear];
  if(!Array.isArray(rows)){rows=starterRows();data.annualBudgets[selectedBudgetYear]=rows}
  else{
-  const oldNames=['薪資收入','投資收入','其他收入','餐費','交通費','居住費','水電瓦斯','通訊費','娛樂費','保險／醫療','其他費用'];
-  const isBlankOldDefault=rows.length===oldNames.length&&rows.every((row,index)=>row.name===oldNames[index]&&(!Array.isArray(row.months)||row.months.every(value=>!(+value||0))));
-  if(isBlankOldDefault){rows=starterRows();data.annualBudgets[selectedBudgetYear]=rows;persist()}
+  let changed=false;
+  ['income','expense'].forEach(type=>{
+   let visible=0;
+   rows=rows.filter(row=>{
+    if(row.type!==type)return true;
+    visible++;
+    const hasAmount=Array.isArray(row.months)&&row.months.some(value=>(+value||0)!==0);
+    if(visible<=3||hasAmount)return true;
+    changed=true;
+    return false
+   })
+  });
+  const defaults={income:['薪資收入','投資收入','其他收入'],expense:['餐費','居住費','其他費用']};
+  ['income','expense'].forEach(type=>{
+   let count=rows.filter(row=>row.type===type).length;
+   while(count<3){rows.push(newAnnualRow(type,defaults[type][count]));count++;changed=true}
+  });
+  if(changed){data.annualBudgets[selectedBudgetYear]=rows;persist()}
  }
  return rows
 }
