@@ -732,6 +732,18 @@ button,input,select,textarea,table{font-family:inherit!important}
  #home.active .home-goal-list::-webkit-scrollbar-track{background:#20192e;border-radius:99px}
  #home.active .home-goal-list::-webkit-scrollbar-thumb{background:#b991aa;border-radius:99px}
 }
+/* 年度預算表層級：月份標題清楚、內容精簡，手機內部捲動時凍結表頭 */
+.annual-table th{font-size:15px;z-index:4}
+.annual-table th:first-child{z-index:5}
+.annual-table .budget-group td{font-size:15px;line-height:1.25;padding-top:7px;padding-bottom:7px}
+.annual-table .budget-subgroup td{font-size:12px}
+.annual-name-label{font-size:14px;font-weight:700}
+@media(max-width:760px){
+ #annualBudget .annual-table-wrap{max-height:68dvh;overflow:auto;-webkit-overflow-scrolling:touch}
+ #annualBudget .annual-table th{top:0;font-size:16px;padding-top:10px;padding-bottom:10px}
+ #annualBudget .annual-table .budget-group td{font-size:14px}
+ #annualBudget .annual-name-label{font-size:13px}
+}
 </style>
 </head>
 <body><div class="magic-sky" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><main class="app"><button type="button" class="top-settings global-settings" aria-label="開啟共用設定" title="共用設定" onclick="openAppSettings()">⚙</button>
