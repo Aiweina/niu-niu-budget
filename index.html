@@ -693,6 +693,35 @@ button,input,select,textarea,table{font-family:inherit!important}
   flex:none!important;
  }
 }
+/* Safari 手機：存款目標固定至少顯示兩筆完整項目 */
+@media(max-width:760px){
+ #home.active .guardian-banner.integrated .hero{
+  height:auto!important;
+  min-height:0!important;
+  grid-template-rows:auto 245px!important;
+  overflow:visible!important;
+ }
+ #home.active .guardian-banner.integrated .hero .home-goals-card{
+  height:245px!important;
+  min-height:245px!important;
+  max-height:245px!important;
+ }
+ #home.active .home-goal-list{
+  height:172px!important;
+  min-height:172px!important;
+  max-height:172px!important;
+  grid-auto-rows:80px!important;
+  overflow-y:auto!important;
+ }
+ #home.active .home-goal-row{
+  height:80px!important;
+  min-height:80px!important;
+  max-height:80px!important;
+ }
+ #home.active .home-goal-list::-webkit-scrollbar{width:4px}
+ #home.active .home-goal-list::-webkit-scrollbar-track{background:#20192e;border-radius:99px}
+ #home.active .home-goal-list::-webkit-scrollbar-thumb{background:#b991aa;border-radius:99px}
+}
 </style>
 </head>
 <body><div class="magic-sky" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><main class="app"><button type="button" class="top-settings global-settings" aria-label="開啟共用設定" title="共用設定" onclick="openAppSettings()">⚙</button>
