@@ -489,6 +489,49 @@ dialog label,dialog .sub{color:#dfccdc}
  }
  #home.active .balance>#safeToSpend{display:none!important}
 }
+/* 手機首頁最終版：上方導覽列＋完整雙守護者橫幅 */
+@media(max-width:760px){
+ .app,.app:has(#home.active){width:100%;max-width:100%;padding-top:8px;padding-bottom:100px}
+ nav,.app:has(#home.active) nav{
+  position:sticky;
+  z-index:40;
+  left:auto;
+  right:auto;
+  top:8px;
+  bottom:auto;
+  width:100%;
+  max-width:100%;
+  height:58px;
+  margin:0 0 14px;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+ }
+ nav button{min-width:0;width:100%}
+ .global-settings{top:78px;right:12px}
+ .fab{bottom:18px}
+ #home.active .guardian-banner.integrated{
+  height:auto;
+  min-height:0;
+  padding:205px 8px 9px;
+  background:#2b1f35 url("assets/angel-demon-human-guardians.png?v=4") center top/100% auto no-repeat;
+ }
+ #home.active .guardian-head{display:none}
+ #home.active .guardian-topbar{
+  left:10px;
+  right:auto;
+  top:10px;
+  width:auto;
+  transform:none;
+  justify-content:flex-start;
+ }
+ #home.active .guardian-topbar .moon-picker{width:128px}
+ #home.active .guardian-banner.integrated>.guardian-treasure-amount{top:82px!important}
+ #home.active .guardian-banner.integrated .guardian-badge{display:block;top:167px;bottom:auto;font-size:8px;padding:3px 6px}
+ #home.active .guardian-banner.integrated:after{top:155px}
+ #home.active .balance-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ #home.active .balance-grid>div{min-width:0;padding-left:3px;padding-right:3px}
+ #home.active .balance-grid small{font-size:9px}
+ #home.active .balance-grid strong{font-size:13px}
+}
 /* 全站統一使用可愛繁體中文圓體 */
 html,body,body *,body *::before,body *::after{
  font-family:"Huninn Cute","jf open 粉圓","Microsoft JhengHei UI","PingFang TC",sans-serif!important;
