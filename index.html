@@ -196,9 +196,9 @@ nav{width:100%;justify-content:center;background:#2a2039;border-color:#9b779d;bo
  #home.active .guardian-head{
   position:absolute;
   z-index:5;
-  top:20px;
-  width:clamp(82px,20vw,102px);
-  height:116px;
+  top:17px;
+  width:clamp(88px,21vw,108px);
+  height:132px;
   background-repeat:no-repeat;
   background-position:center bottom;
   background-size:contain;
@@ -207,11 +207,11 @@ nav{width:100%;justify-content:center;background:#2a2039;border-color:#9b779d;bo
  }
  #home.active .guardian-head.angel{
   left:7px;
-  background-image:url("assets/guardian-cheek-angel.png?v=2");
+  background-image:url("assets/guardian-hanger-angel.png?v=3");
  }
  #home.active .guardian-head.demon{
   right:7px;
-  background-image:url("assets/guardian-cheek-demon.png?v=2");
+  background-image:url("assets/guardian-hanger-demon.png?v=3");
  }
  #home.active .guardian-treasure-amount{top:71px}
  #home.active .guardian-treasure-amount .big{font-size:clamp(25px,8vw,34px)}
@@ -489,7 +489,7 @@ dialog label,dialog .sub{color:#dfccdc}
  }
  #home.active .balance>#safeToSpend{display:none!important}
 }
-/* 手機首頁最終版：上方導覽列＋完整雙守護者橫幅 */
+/* 手機首頁：上方導覽列 */
 @media(max-width:760px){
  .app,.app:has(#home.active){width:100%;max-width:100%;padding-top:8px;padding-bottom:100px}
  nav,.app:has(#home.active) nav{
@@ -512,9 +512,9 @@ dialog label,dialog .sub{color:#dfccdc}
   height:auto;
   min-height:0;
   padding:158px 8px 9px;
-  background:#2b1f35 url("assets/angel-demon-human-guardians.png?v=4") center top/100% auto no-repeat;
+  background-color:#2b1f35;
  }
- #home.active .guardian-head{display:none}
+ #home.active .guardian-head{display:block}
  #home.active .guardian-topbar{
   left:10px;
   right:auto;
@@ -537,15 +537,117 @@ html,body,body *,body *::before,body *::after{
  font-family:"Huninn Cute","jf open 粉圓","Microsoft JhengHei UI","PingFang TC",sans-serif!important;
 }
 button,input,select,textarea,table{font-family:inherit!important}
+/* 年度預算工具列緊湊排列 */
+.annual-budget-card .annual-toolbar{
+ display:grid;
+ grid-template-columns:minmax(0,1fr) auto auto;
+ align-items:center;
+ gap:10px;
+ margin-bottom:14px;
+}
+.annual-budget-card .section-title{margin:0}
+.annual-budget-card .annual-year{white-space:nowrap}
+.annual-budget-card .annual-add-income{white-space:nowrap}
+@media(max-width:760px){
+ .annual-budget-card{padding:16px 14px!important}
+ .annual-budget-card .annual-toolbar{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:9px 10px;
+  margin-bottom:11px;
+ }
+ .annual-budget-card .section-title{grid-column:1/-1}
+ .annual-budget-card .annual-year{display:grid;grid-template-columns:auto minmax(0,1fr);width:100%}
+ .annual-budget-card .annual-year input{width:100%;min-width:0}
+ .annual-budget-card .annual-add-income{width:auto!important;padding:9px 13px}
+}
+/* 移除頁面最上方星月裝飾列 */
+.app:before,.app:after{content:none!important;display:none!important}
+/* 手機使用金庫橫幅構圖：人物只露上半身、金額置中 */
+@media(max-width:760px){
+ #home.active .guardian-banner.integrated{
+  padding-top:140px!important;
+  background:#2b1f35 url("assets/angel-demon-human-guardians.png?v=5") center top/100% auto no-repeat!important;
+ }
+ #home.active .guardian-head{display:none!important}
+ #home.active .guardian-banner.integrated .guardian-badge{
+  display:block!important;
+  top:108px!important;
+  bottom:auto!important;
+  padding:4px 7px;
+  font-size:8px;
+ }
+ #home.active .guardian-banner.integrated>.guardian-treasure-amount{top:65px!important}
+}
+/* 首頁中央只顯示金額，不顯示菱形 */
+.guardian-treasure-amount .big:before{content:none!important;display:none!important}
+/* 手機首頁下方兩張卡片統一放大文字 */
+@media(max-width:760px){
+ #home.active .guardian-banner.integrated .hero .card{padding:16px 15px!important}
+ #home.active .hero .eyebrow{font-size:16px!important;line-height:1.35}
+ #home.active .balance-grid{gap:9px!important;margin-top:10px}
+ #home.active .balance-grid div{padding:11px 7px!important}
+ #home.active .balance-grid small{font-size:12px!important;line-height:1.35}
+ #home.active .balance-grid strong{font-size:17px!important;line-height:1.3}
+ #home.active #savingPlanDetail{font-size:10px!important;line-height:1.35;margin-top:4px}
+ #home.active .home-goals-title{margin-bottom:11px!important}
+ #home.active .home-goals-title .eyebrow{font-size:16px!important}
+ #home.active .home-goals-card .pill{font-size:12px!important;padding:5px 9px!important}
+ #home.active .home-goal-list{gap:9px!important}
+ #home.active .home-goal-row{padding:11px 12px!important}
+ #home.active .home-goal-head strong{font-size:15px!important;line-height:1.35}
+ #home.active .home-goal-head span{font-size:13px!important}
+ #home.active .home-goal-money{font-size:17px!important;line-height:1.35;margin:6px 0!important}
+ #home.active .home-goal-money small{font-size:13px!important}
+ #home.active .home-goal-row .progress{height:8px!important}
+ #home.active .home-goal-empty{font-size:13px!important}
+}
+/* 手機首頁維持單一畫面；目標過多時僅清單內部捲動 */
+@media(max-width:760px){
+ body:has(#home.active){height:100dvh;overflow:hidden!important}
+ .app:has(#home.active){
+  height:100dvh!important;
+  min-height:0!important;
+  padding-bottom:8px!important;
+  overflow:hidden!important;
+ }
+ .app:has(#home.active) nav{flex:none;margin-bottom:10px}
+ #home.active{
+  height:calc(100dvh - 84px)!important;
+  min-height:0!important;
+  padding-bottom:0!important;
+  overflow:hidden!important;
+ }
+ #home.active .guardian-banner.integrated{
+  height:100%!important;
+  min-height:0!important;
+  display:block;
+  overflow:hidden!important;
+ }
+ #home.active .guardian-banner.integrated .hero{
+  height:calc(100% - 149px)!important;
+  min-height:0!important;
+  grid-template-rows:auto minmax(0,1fr)!important;
+  overflow:hidden;
+ }
+ #home.active .guardian-banner.integrated .hero .card{min-height:0!important}
+ #home.active .home-goals-card{overflow:hidden!important}
+ #home.active .home-goal-list{
+  min-height:0!important;
+  overflow-y:auto!important;
+  overscroll-behavior:contain;
+  scrollbar-width:thin;
+ }
+}
 </style>
 </head>
 <body><div class="magic-sky" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><main class="app"><button type="button" class="top-settings global-settings" aria-label="開啟共用設定" title="共用設定" onclick="openAppSettings()">⚙</button>
 <nav><button class="active" data-view="home">總覽</button><button data-view="records">收支紀錄</button><button data-view="annualBudget">預算編制</button><button data-view="investments">投資</button><button data-view="goals">存款目標</button></nav>
 <section id="home" class="view active">
- <div class="guardian-banner integrated" role="img" aria-label="金髮與藍髮守護者共同管理本月預算"><div class="guardian-topbar"><div class="moon-picker"><span>☽</span><input class="month" id="monthPicker" type="month" aria-label="選擇月份"></div></div><span class="guardian-head angel" aria-hidden="true"></span><span class="guardian-head demon" aria-hidden="true"></span><div class="guardian-treasure-amount" aria-label="本月還可以安心花"><div class="big" id="safeToSpend">$0</div></div><div class="guardian-badge angel">✧ 存款守護者</div><div class="guardian-badge demon">♠ 花費守門人</div><div class="hero"><article class="card balance"><div class="eyebrow">本月收支概況</div><div class="balance-grid"><div><small>本月收入</small><strong id="incomeTotal">$0</strong></div><div><small>已預留存款</small><strong id="savingPlan">$0</strong><small id="savingPlanDetail"></small></div><div><small>本月已花費</small><strong id="spentTotal">$0</strong></div></div></article><article class="card home-goals-card"><div class="row-between home-goals-title"><div class="eyebrow">未完成存款目標</div><span class="pill" id="unfinishedGoalCount">0 項</span></div><div id="homeGoalList" class="home-goal-list"></div></article></div></div>
+ <div class="guardian-banner integrated" role="img" aria-label="金髮與藍髮守護者共同管理本月預算"><div class="guardian-topbar"><div class="moon-picker"><span>☽</span><input class="month" id="monthPicker" type="month" aria-label="選擇月份"></div></div><span class="guardian-head angel" aria-hidden="true"></span><span class="guardian-head demon" aria-hidden="true"></span><div class="guardian-treasure-amount" aria-label="本月還可以安心花"><div class="big" id="safeToSpend">$0</div></div><div class="hero"><article class="card balance"><div class="eyebrow">本月收支概況</div><div class="balance-grid"><div><small>本月收入</small><strong id="incomeTotal">$0</strong></div><div><small>已預留存款</small><strong id="savingPlan">$0</strong><small id="savingPlanDetail"></small></div><div><small>本月已花費</small><strong id="spentTotal">$0</strong></div></div></article><article class="card home-goals-card"><div class="row-between home-goals-title"><div class="eyebrow">未完成存款目標</div><span class="pill" id="unfinishedGoalCount">0 項</span></div><div id="homeGoalList" class="home-goal-list"></div></article></div></div>
 </section>
 <section id="records" class="view"><div class="summary-strip records-summary"><article class="card mini"><span class="eyebrow">收入</span><strong id="recIncome">$0</strong></article><article class="card mini"><span class="eyebrow">記帳支出</span><strong id="recExpense">$0</strong></article><article class="card mini"><span class="eyebrow">固定支出</span><strong id="recFixed">$0</strong></article><article class="card mini"><span class="eyebrow">本月支出預算</span><strong id="recBudget">$0</strong></article><article class="card mini"><span class="eyebrow" id="recVarianceLabel">預算差異</span><strong id="recVariance">$0</strong></article><article class="card mini"><span class="eyebrow">本月結餘</span><strong id="recNet">$0</strong></article></div><div class="records-layout"><article class="card"><h2 class="section-title">分類花費</h2><div class="budget-list" id="budgetList"></div></article><article class="card"><div class="panel-head"><h2 class="section-title">本月收支紀錄</h2><button class="btn" onclick="openTransaction()">＋ 新增</button></div><div id="allTransactions"></div></article></div></section>
-<section id="annualBudget" class="view"><div class="summary-strip annual-summary"><article class="card mini"><span class="eyebrow">全年預計收入</span><strong id="annualIncome">$0</strong></article><article class="card mini"><span class="eyebrow">全年預計支出</span><strong id="annualExpense">$0</strong></article><article class="card mini"><span class="eyebrow">全年預計結餘</span><strong id="annualNet">$0</strong></article></div><article class="card budget-fixed-panel"><div class="panel-head"><span></span><div class="goal-actions"><button type="button" class="btn ghost" onclick="applyFixedIncomeToYear()">收入套用全年</button><button type="button" class="btn" onclick="saveSettings()">儲存固定設定</button></div></div><div class="budget-fixed-grid"><div><div class="form-grid income-form"><label>薪資收入<input id="salaryIncome" type="number" min="0" placeholder="例如 50000" oninput="updateNetIncomePreview()"></label><label>勞健保費<input id="insuranceDeduction" type="number" min="0" placeholder="例如 2500" oninput="updateNetIncomePreview()"></label><label>職工福利金提撥<input id="welfareDeduction" type="number" min="0" placeholder="例如 300" oninput="updateNetIncomePreview()"></label><label>每月固定存款<input id="fixedSaving" type="number" min="0" placeholder="例如 5000"></label><label>每月目的存款<input id="purposeSaving" type="number" min="0" placeholder="例如 5000"></label><div class="net-income-preview full"><span>真正固定收入</span><strong id="netFixedIncome">$0</strong><small>薪資收入 − 勞健保費 − 職工福利金提撥</small></div></div><div class="panel-head compact-head"><h3>固定支出</h3><div class="goal-actions"><button id="applyFixedExpensesButton" type="button" class="btn ghost" onclick="applyFixedExpensesToYear(this)">套用全年</button><button type="button" class="btn ghost" onclick="addSettingRow('fixed')">＋ 增加</button></div></div><div id="fixedSettings" class="settings-list"></div><div id="fixedApplyStatus" class="sub" role="status" aria-live="polite"></div></div></div></article><article class="card" style="margin-top:18px"><div class="annual-toolbar"><h2 class="section-title">整年度預算編制</h2><div class="annual-year">預算年度 <input id="budgetYear" type="number" min="2000" max="2100"></div></div><div class="panel-head annual-add-row"><span></span><div class="goal-actions"><button class="btn ghost" onclick="addAnnualBudgetRow('income')">＋ 收入項目</button></div></div><div id="annualBudgetTable" class="annual-table-wrap"></div><div class="annual-tip">提示：手機可左右滑動查看 1–12 月。所有金額皆以新台幣計算。</div></article></section>
+<section id="annualBudget" class="view"><div class="summary-strip annual-summary"><article class="card mini"><span class="eyebrow">全年預計收入</span><strong id="annualIncome">$0</strong></article><article class="card mini"><span class="eyebrow">全年預計支出</span><strong id="annualExpense">$0</strong></article><article class="card mini"><span class="eyebrow">全年預計結餘</span><strong id="annualNet">$0</strong></article></div><article class="card budget-fixed-panel"><div class="panel-head"><span></span><div class="goal-actions"><button type="button" class="btn ghost" onclick="applyFixedIncomeToYear()">收入套用全年</button><button type="button" class="btn" onclick="saveSettings()">儲存固定設定</button></div></div><div class="budget-fixed-grid"><div><div class="form-grid income-form"><label>薪資收入<input id="salaryIncome" type="number" min="0" placeholder="例如 50000" oninput="updateNetIncomePreview()"></label><label>勞健保費<input id="insuranceDeduction" type="number" min="0" placeholder="例如 2500" oninput="updateNetIncomePreview()"></label><label>職工福利金提撥<input id="welfareDeduction" type="number" min="0" placeholder="例如 300" oninput="updateNetIncomePreview()"></label><label>每月固定存款<input id="fixedSaving" type="number" min="0" placeholder="例如 5000"></label><label>每月目的存款<input id="purposeSaving" type="number" min="0" placeholder="例如 5000"></label><div class="net-income-preview full"><span>真正固定收入</span><strong id="netFixedIncome">$0</strong><small>薪資收入 − 勞健保費 − 職工福利金提撥</small></div></div><div class="panel-head compact-head"><h3>固定支出</h3><div class="goal-actions"><button id="applyFixedExpensesButton" type="button" class="btn ghost" onclick="applyFixedExpensesToYear(this)">套用全年</button><button type="button" class="btn ghost" onclick="addSettingRow('fixed')">＋ 增加</button></div></div><div id="fixedSettings" class="settings-list"></div><div id="fixedApplyStatus" class="sub" role="status" aria-live="polite"></div></div></div></article><article class="card annual-budget-card" style="margin-top:18px"><div class="annual-toolbar"><h2 class="section-title">整年度預算編制</h2><div class="annual-year">預算年度 <input id="budgetYear" type="number" min="2000" max="2100"></div><button class="btn ghost annual-add-income" onclick="addAnnualBudgetRow('income')">＋ 收入項目</button></div><div id="annualBudgetTable" class="annual-table-wrap"></div><div class="annual-tip">提示：手機可左右滑動查看 1–12 月。所有金額皆以新台幣計算。</div></article></section>
 <section id="investments" class="view"><div class="summary-strip"><article class="card mini"><span class="eyebrow">投資帳戶餘額</span><strong id="invCashBalance">$0</strong></article><article class="card mini"><span class="eyebrow">本月轉入</span><strong id="invMonthTransfer">$0</strong></article><article class="card mini"><span class="eyebrow">投資商品市值</span><strong id="invValue">$0</strong></article><article class="card mini"><span class="eyebrow">未實現損益</span><strong id="invGain">$0</strong></article></div><div class="investment-layout"><article class="card"><div class="panel-head"><div><h2 class="section-title">投資持倉</h2><div class="sub">持倉累計至所選月份月底</div></div><div class="investment-actions"><button class="btn ghost" onclick="openInvestment('cashOpening')">期初餘額</button><button class="btn ghost" onclick="openInvestment('positionOpening')">現有標的</button><button class="btn ghost" onclick="openInvestment('transfer')">＋ 轉入</button><button class="btn" onclick="openInvestment('buy')">＋ 買進</button><button class="btn" id="updatePricesBtn" onclick="updateMarketPrices()">↻ 更新價格</button></div></div><div id="holdingList" class="holding-list"></div><div class="investment-help">更新「目前價格」後會自動儲存，並重新計算未實現損益。投資帳戶餘額與持倉分開計算。</div><div class="investment-help" id="priceUpdateStatus">尚未從官方行情更新</div></article><article class="card"><div class="panel-head"><div><h2 class="section-title">本月投資紀錄</h2><div class="sub" id="investmentCash">轉入增加帳戶餘額，買進則扣除餘額</div></div></div><div id="investmentLedger" class="investment-ledger"></div></article></div></section>
 <section id="goals" class="view"><article class="card"><div class="panel-head"><div><h2 class="section-title">我的存款目標</h2><div class="sub">把大目標拆成每月可以完成的小步驟</div></div><button class="btn" onclick="openGoal()">＋ 新增目標</button></div><div id="goalList"></div></article></section>
 </main><button class="fab" onclick="openTransaction()">＋ 記一筆</button>
