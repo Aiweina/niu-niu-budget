@@ -102,7 +102,7 @@ nav{width:100%;justify-content:center;background:#2a2039;border-color:#9b779d;bo
 @media(max-width:760px){nav{grid-template-columns:repeat(4,minmax(0,1fr))}.header-actions{gap:5px}.top-settings{width:37px;height:37px;font-size:17px;flex:none}.app:has(#home.active) .top-settings{width:35px;height:35px}.app:has(#home.active) .moon-picker{max-width:143px}}
 .annual-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.annual-year{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;font-weight:800}.annual-year input{width:105px;margin:0}.annual-table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px;background:#fffaf1}.annual-table{width:100%;min-width:1120px;border-collapse:separate;border-spacing:0}.annual-table th,.annual-table td{padding:8px;border-right:1px solid #ead8bd;border-bottom:1px solid #ead8bd;text-align:right;white-space:nowrap}.annual-table th{position:sticky;top:0;z-index:2;background:#342640;color:#f9e8bc;font-size:11px}.annual-table th:first-child,.annual-table td:first-child{position:sticky;left:0;z-index:1;text-align:left;background:#fff8ed}.annual-table th:first-child{z-index:3;background:#342640}.annual-table .budget-group td{position:static;background:linear-gradient(90deg,#eee0ef,#fff0cf);color:#5b3c60;font-weight:900;text-align:left}.annual-table input{margin:0;padding:7px 8px;border-width:1px;border-radius:7px;box-shadow:none}.annual-table .budget-name{min-width:125px}.annual-table .budget-month{min-width:76px;text-align:right}.annual-table .annual-total{font-weight:900;color:#5b3c60}.annual-table .row-delete{padding:4px 7px}.annual-summary{grid-template-columns:repeat(3,1fr)}.annual-summary .mini:last-child{background:linear-gradient(145deg,#fff6dd,#eee0ef)}.annual-tip{margin-top:10px;color:var(--muted);font-size:12px}.negative{color:var(--red)!important}nav button[data-view="annualBudget"]:before{content:"▦"}
 .setting-row.fixed-category-row{grid-template-columns:minmax(120px,1fr) 150px 130px 42px}.setting-row.category-only-row{grid-template-columns:1fr 42px}
-.global-settings{position:fixed;z-index:60;top:18px;right:max(18px,calc((100vw - 1160px)/2 + 18px))}.category-settings-list{max-height:55vh;overflow:auto;margin-top:14px}
+.global-settings{position:fixed;z-index:60;top:18px;right:max(18px,calc((100vw - 1160px)/2 + 18px))}.category-settings-list{margin-top:14px}#categorySettingsDialog{width:min(820px,calc(100% - 28px));max-height:88vh}#categorySettingsDialog .modal{max-height:88vh;overflow:auto}#categorySettingsDialog .budget-fixed-panel{box-shadow:none;margin:0;padding:0;border:0;background:transparent}#categorySettingsDialog .app-settings-categories{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
 @media(max-width:760px){nav{grid-template-columns:repeat(5,minmax(0,1fr))}.annual-summary{grid-template-columns:1fr 1fr}.annual-summary .mini:last-child{grid-column:1/-1}.annual-toolbar{align-items:flex-start;flex-direction:column}.annual-toolbar .btn{width:100%}}
 .budget-fixed-panel{margin-bottom:18px}.budget-fixed-grid{margin-top:0;align-items:start}.compact-head{margin:18px 0 10px}.compact-head h3{margin:0;color:#593d61;font-size:15px}.budget-fixed-panel .setting-row{grid-template-columns:minmax(0,1fr) 120px 34px;padding:8px}.budget-fixed-panel .setting-row input{margin:0;padding:8px}.budget-fixed-panel .settings-list{gap:7px}
 @media(max-width:760px){nav{grid-template-columns:repeat(5,minmax(0,1fr))}.budget-fixed-panel>.panel-head{align-items:flex-start}.budget-fixed-panel>.panel-head .btn{font-size:11px;padding:8px}.budget-fixed-grid{grid-template-columns:1fr}.compact-head{margin-top:14px}.budget-fixed-panel .setting-row{grid-template-columns:minmax(0,1fr) 92px 28px}.budget-fixed-panel .setting-row input{font-size:12px;padding:7px}.annual-toolbar{align-items:flex-start;flex-direction:column}.annual-summary{grid-template-columns:1fr 1fr}.annual-summary .mini:last-child{grid-column:1/-1}}
@@ -111,8 +111,8 @@ nav{width:100%;justify-content:center;background:#2a2039;border-color:#9b779d;bo
 .guardian-topbar{position:absolute;z-index:4;left:14px;right:14px;top:12px;display:flex;justify-content:space-between;align-items:center;pointer-events:auto}.image-brand{display:flex;align-items:center;gap:7px;padding:5px 9px 5px 6px;border:1px solid #f0d78a88;border-radius:14px 4px 14px 4px;background:#251a30b8;color:#fff5cc;box-shadow:0 3px 0 #150e20;backdrop-filter:blur(8px)}.image-brand>span{width:27px;height:27px;display:grid;place-items:center;border-radius:50%;background:#6f4a76;color:#ffe599}.image-brand small,.image-brand strong{display:block}.image-brand small{font:7px Georgia,serif;letter-spacing:1px;color:#d8bad8}.image-brand strong{font-size:13px;letter-spacing:1px}.guardian-topbar .moon-picker{background:#251a30c9;backdrop-filter:blur(8px)}
 @media(max-width:760px){.app:has(#home.active){padding-top:6px}.app:has(#home.active) nav{height:54px}.app:has(#home.active) #home.active{height:calc(100dvh - 72px)}.guardian-topbar{left:8px;right:8px;top:7px}.image-brand{padding:3px 6px 3px 4px}.image-brand>span{width:23px;height:23px;font-size:11px}.image-brand small{display:none}.image-brand strong{font-size:11px}.guardian-topbar .moon-picker{max-width:138px;padding:3px 5px 3px 7px}.guardian-topbar .month{padding:6px;font-size:10px}}
 @media(max-width:760px){nav button{font-size:0!important;gap:0;padding:4px!important}nav button:before{font-size:22px!important;line-height:1!important;margin:0!important}nav button.active:before{transform:scale(1.08);filter:drop-shadow(0 0 5px #e8c66a)}nav button[data-view="home"]:before{content:"⌂"}nav button[data-view="records"]:before{content:"☷"}nav button[data-view="annualBudget"]:before{content:"▦"}nav button[data-view="investments"]:before{content:"♜"}nav button[data-view="goals"]:before{content:"♢"}}
-.records-layout{display:grid;grid-template-columns:minmax(280px,.8fr) minmax(0,1.4fr);gap:18px;align-items:start}.guardian-banner.integrated .hero{grid-template-columns:1fr}.guardian-banner.integrated{padding-bottom:20px}.guardian-banner.integrated .hero .balance{min-height:215px}.guardian-banner.integrated .home-goals-card{min-height:170px}
-@media(max-width:760px){.records-layout{grid-template-columns:1fr;gap:12px}#home.active{display:block;height:calc(100dvh - 72px)}#home.active .guardian-banner.integrated{height:100%;min-height:0;padding:140px 8px 8px}#home.active .guardian-banner.integrated .hero{height:100%;min-height:0;grid-template-columns:1fr;grid-template-rows:1.12fr .88fr;gap:7px}#home.active .guardian-banner.integrated .hero .card{min-height:0;height:100%}#home.active .balance .big{font-size:31px;margin:8px 0 10px}#home.active .balance-grid{grid-template-columns:repeat(3,1fr);gap:4px}#home.active .balance-grid div{display:block;text-align:center;padding:7px 3px}#home.active .balance-grid small{display:block;font-size:8px;margin-bottom:3px}#home.active .balance-grid strong{font-size:11px}#home.active .home-goals-card{min-height:0}}
+.records-summary{grid-template-columns:repeat(3,1fr)}.records-layout{display:grid;grid-template-columns:minmax(280px,.8fr) minmax(0,1.4fr);gap:18px;align-items:start}.guardian-banner.integrated .hero{grid-template-columns:1fr}.guardian-banner.integrated{padding-bottom:20px}.guardian-banner.integrated .hero .balance{min-height:215px}.guardian-banner.integrated .home-goals-card{min-height:170px}
+@media(max-width:760px){.records-summary{grid-template-columns:1fr 1fr}.records-layout{grid-template-columns:1fr;gap:12px}#home.active{display:block;height:calc(100dvh - 72px)}#home.active .guardian-banner.integrated{height:100%;min-height:0;padding:140px 8px 8px}#home.active .guardian-banner.integrated .hero{height:100%;min-height:0;grid-template-columns:1fr;grid-template-rows:1.12fr .88fr;gap:7px}#home.active .guardian-banner.integrated .hero .card{min-height:0;height:100%}#home.active .balance .big{font-size:31px;margin:8px 0 10px}#home.active .balance-grid{grid-template-columns:repeat(3,1fr);gap:4px}#home.active .balance-grid div{display:block;text-align:center;padding:7px 3px}#home.active .balance-grid small{display:block;font-size:8px;margin-bottom:3px}#home.active .balance-grid strong{font-size:11px}#home.active .home-goals-card{min-height:0}}
 @media(max-width:760px){body:has(#home.active){overflow:auto}.app:has(#home.active){height:auto;min-height:100dvh;overflow:visible}#home.active{height:auto;min-height:0;overflow:visible}#home.active .guardian-banner.integrated{height:auto;min-height:0;padding:140px 8px 9px}#home.active .guardian-banner.integrated .hero{height:auto;display:grid;grid-template-columns:1fr;grid-template-rows:auto auto;gap:8px}#home.active .guardian-banner.integrated .hero .card{height:auto;min-height:0;padding:14px 13px}#home.active .guardian-banner.integrated .hero .balance{min-height:0}#home.active .eyebrow{font-size:13px}#home.active .balance .eyebrow:before,#home.active .balance .eyebrow:after{font-size:15px}#home.active .balance .big{font-size:39px;margin:10px 0 13px}#home.active .balance-grid{gap:7px}#home.active .balance-grid div{padding:9px 5px}#home.active .balance-grid small{font-size:10px;margin-bottom:4px}#home.active .balance-grid strong{font-size:14px}#home.active .home-goals-card{min-height:0;padding-bottom:12px}#home.active .home-goals-title{margin-bottom:8px}#home.active .home-goals-title .eyebrow{font-size:12px}#home.active .home-goal-list{display:grid;grid-template-rows:none;grid-auto-rows:auto;gap:6px;overflow:visible}#home.active .home-goal-row{display:grid;min-height:0;padding:8px 9px}#home.active .home-goal-head{display:flex}#home.active .home-goal-head strong{font-size:12px}#home.active .home-goal-head span{font-size:10px}#home.active .home-goal-money{font-size:13px;line-height:1.2;margin:4px 0;grid-column:1/-1}#home.active .home-goal-money small{font-size:10px}#home.active .home-goal-row .progress{height:6px;margin-top:2px}#home.active .home-goal-empty{padding:10px 2px;font-size:11px}}
 @media(max-width:760px){html,body{width:100%;max-width:100%;overflow-x:hidden}.app,.view,.card,.grid2,.records-layout,.investment-layout{max-width:100%;min-width:0}.app,.app:has(#home.active){padding-bottom:calc(118px + env(safe-area-inset-bottom));overflow-x:hidden}.view{padding-bottom:20px}.view>*:last-child{margin-bottom:18px}input,select,textarea,.annual-table input,.budget-fixed-panel .setting-row input{font-size:16px!important}.annual-table-wrap{width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}.fab{bottom:calc(70px + env(safe-area-inset-bottom))}nav{bottom:calc(8px + env(safe-area-inset-bottom));max-width:calc(100% - 20px)}}
 @media(max-width:760px){.setting-row.fixed-category-row{grid-template-columns:1fr 1fr 34px}.setting-row.fixed-category-row>input:first-child{grid-column:1/-1}.setting-row.category-only-row{grid-template-columns:1fr 34px}}
@@ -121,7 +121,13 @@ nav{width:100%;justify-content:center;background:#2a2039;border-color:#9b779d;bo
 @media(max-width:760px){
  #home.active .guardian-banner.integrated{
   padding-top:140px;
-  background-position:center top;
+  background-image:
+   radial-gradient(circle at 18% 24%,#d69a513d,transparent 28%),
+   radial-gradient(circle at 82% 24%,#bd62be42,transparent 30%),
+   radial-gradient(circle at 50% 110%,#ad7a4f42,transparent 42%),
+   linear-gradient(135deg,#503420,#2d2036 48%,#40213f);
+  background-position:center;
+  background-size:cover;
  }
  #home.active .guardian-banner.integrated:before{
   inset:7px;
@@ -161,20 +167,179 @@ nav{width:100%;justify-content:center;background:#2a2039;border-color:#9b779d;bo
  #home.active .guardian-banner.integrated .guardian-copy{top:72px}
  #home.active .guardian-banner.integrated .guardian-badge{display:none}
  #home.active .guardian-banner.integrated:after{top:105px}
+ #home.active .guardian-head{
+  position:absolute;
+  z-index:5;
+  top:17px;
+  width:clamp(88px,21vw,108px);
+  height:132px;
+  background-repeat:no-repeat;
+  background-position:center bottom;
+  background-size:contain;
+  filter:drop-shadow(0 6px 3px #120b19aa) drop-shadow(0 0 5px #f4d37a55);
+  pointer-events:none;
+ }
+ #home.active .guardian-head.angel{
+  left:7px;
+  background-image:url("assets/guardian-hanger-angel.png?v=1");
+ }
+ #home.active .guardian-head.demon{
+  right:7px;
+  background-image:url("assets/guardian-hanger-demon.png?v=1");
+ }
+}
+
+/* 其他頁籤共用首頁的紫金魔幻視覺語言 */
+.view:not(#home){
+ position:relative;
+ padding-top:66px;
+ color:#fff7df;
+}
+.view:not(#home):before{
+ position:absolute;
+ left:0;
+ right:0;
+ top:0;
+ height:48px;
+ display:flex;
+ align-items:center;
+ padding:0 18px;
+ border:1px solid #d8bd7688;
+ border-radius:18px 5px 18px 5px;
+ background:
+  radial-gradient(circle at 12% 50%,#d99b3544,transparent 24%),
+  radial-gradient(circle at 88% 50%,#b96dc34a,transparent 25%),
+  linear-gradient(135deg,#50324f,#2a2039 55%,#35233e);
+ box-shadow:inset 0 0 0 4px #ffffff08,0 5px 0 #171020,0 0 22px #bc78be42;
+ color:#ffe8a6;
+ font:800 17px Georgia,"Noto Serif TC",serif;
+ letter-spacing:2px;
+ text-shadow:0 2px 0 #160e1d,0 0 12px #ffe69a55;
+}
+#records:before{content:"☷  收支魔法帳簿"}
+#annualBudget:before{content:"▦  年度預算卷軸"}
+#investments:before{content:"♜  投資煉金室"}
+#goals:before{content:"♢  願望存款聖殿"}
+.view:not(#home)>.card,
+.view:not(#home)>.summary-strip .card,
+.view:not(#home)>.records-layout .card,
+.view:not(#home)>.investment-layout .card{
+ color:#fff7df;
+ border:1px solid #b98cac;
+ background:
+  radial-gradient(circle at 92% 3%,#b86bc23c,transparent 28%),
+  radial-gradient(circle at 8% 96%,#d69a3530,transparent 25%),
+  linear-gradient(145deg,#493249f2,#2a223bf2);
+ box-shadow:inset 0 0 0 4px #ffffff08,0 7px 0 #171020,0 15px 35px #160e245c;
+ backdrop-filter:blur(12px);
+}
+.view:not(#home) .card:before{border-color:#e8cf8f3d}
+.view:not(#home) .card:after{color:#efd58f}
+.view:not(#home) .section-title,
+.view:not(#home) h3{color:#ffe6a1;text-shadow:0 0 10px #f0cb7944}
+.view:not(#home) .eyebrow,
+.view:not(#home) .sub,
+.view:not(#home) .empty,
+.view:not(#home) .investment-help,
+.view:not(#home) .annual-tip,
+.view:not(#home) .annual-year,
+.view:not(#home) .holding-name small,
+.view:not(#home) .holding-stat small,
+.view:not(#home) .investment-row small,
+.view:not(#home) .budget-name small,
+.view:not(#home) .money small{color:#d8c8d8}
+.view:not(#home) .summary-strip .mini:nth-child(odd){background:radial-gradient(circle at 85% 15%,#e0b54c4a,transparent 34%),linear-gradient(145deg,#5b3b52,#2c263e)}
+.view:not(#home) .summary-strip .mini:nth-child(even){background:radial-gradient(circle at 85% 15%,#b96fc64a,transparent 34%),linear-gradient(145deg,#463657,#27233a)}
+.view:not(#home) .summary-strip .mini strong{color:#fff1bd;text-shadow:0 2px 0 #171020}
+.view:not(#home) .budget-item,
+.view:not(#home) .holding,
+.view:not(#home) .setting-row{
+ color:#fff8e7;
+ border:1px solid #c69dbc88;
+ background:linear-gradient(135deg,#ffffff10,#e6c9e10a);
+ box-shadow:inset 0 0 12px #0002,0 2px 0 #171020;
+}
+.view:not(#home) .tx,
+.view:not(#home) .investment-row{border-color:#d8bd9855}
+.view:not(#home) .icon{
+ border:1px solid #d8bc74;
+ background:linear-gradient(145deg,#7a527b,#3c304d);
+ color:#ffe8a5;
+ box-shadow:0 2px 0 #171020;
+}
+.view:not(#home) .progress{border-color:#8e718d;background:#20192e}
+.view:not(#home) .progress i{background:linear-gradient(90deg,#d69c42,#f2d47c,#b46cc2);box-shadow:0 0 8px #f2d47c88}
+.btn,.fab{
+ border:1px solid #d9bd75;
+ background:linear-gradient(145deg,#7a527b,#48314f);
+ color:#fff0b8;
+ box-shadow:0 3px 0 #211529,0 0 11px #bc7cbd33;
+}
+.btn.ghost{
+ border:1px solid #b891ae;
+ background:linear-gradient(#eee0ec,#d8c5d7);
+ color:#56365b;
+ box-shadow:0 2px 0 #6f506c;
+}
+.btn:active,.fab:active{transform:translateY(2px);box-shadow:0 1px 0 #211529}
+.view:not(#home) label{color:#ead8e5}
+.view:not(#home) input,
+.view:not(#home) select,
+dialog input,
+dialog select{
+ border-color:#b993a6;
+ background:#fff9ed;
+ color:#4a304d;
+ box-shadow:inset 0 1px 4px #7d52631c;
+}
+.view:not(#home) input:focus,
+.view:not(#home) select:focus,
+dialog input:focus,
+dialog select:focus{outline:2px solid #e5c96f;outline-offset:1px}
+.view:not(#home) .net-income-preview{border-color:#e1c064;background:linear-gradient(135deg,#58405f,#382a47);box-shadow:inset 0 0 12px #0003,0 3px 0 #171020}
+.view:not(#home) .net-income-preview span,
+.view:not(#home) .net-income-preview strong{color:#ffe9a8}
+.view:not(#home) .net-income-preview small{color:#d9c6d8}
+.view:not(#home) .annual-table-wrap{border-color:#d2b46d;box-shadow:0 4px 0 #171020,0 0 16px #c390bc33}
+.view:not(#home) .annual-table th{background:linear-gradient(#493450,#2c233c);color:#ffe8aa}
+.view:not(#home) .annual-table .budget-group td{background:linear-gradient(90deg,#d7c2d8,#f3dfaa);color:#513552}
+.view:not(#home) .annual-table td{color:#4a3547}
+.view:not(#home) .annual-table .annual-total{color:#603c62}
+.view:not(#home) .gain{color:#91e2c5}
+.view:not(#home) .loss,
+.view:not(#home) .danger{color:#ff9b9b}
+dialog{
+ border:1px solid #d9bd75;
+ border-radius:24px 7px 24px 7px;
+ color:#fff7df;
+ background:linear-gradient(145deg,#4f3550,#282038);
+ box-shadow:inset 0 0 0 5px #ffffff09,0 8px 0 #171020,0 30px 90px #100a18cc;
+}
+dialog::backdrop{background:#120c1bd9;backdrop-filter:blur(5px)}
+dialog .modal{position:relative;background:radial-gradient(circle at 90% 0,#b66dbb3b,transparent 32%)}
+dialog .modal:before{content:"✦";position:absolute;right:16px;top:12px;color:#efd27d;text-shadow:0 0 9px #ffe89a}
+dialog h2{color:#ffe5a0;font-family:Georgia,"Noto Serif TC",serif;letter-spacing:1px}
+dialog label,dialog .sub{color:#dfccdc}
+@media(max-width:760px){
+ .view:not(#home){padding-top:57px}
+ .view:not(#home):before{height:41px;padding:0 13px;font-size:14px;border-radius:14px 4px 14px 4px}
+ .view:not(#home)>.card,
+ .view:not(#home)>.records-layout .card,
+ .view:not(#home)>.investment-layout .card{box-shadow:inset 0 0 0 3px #ffffff08,0 5px 0 #171020,0 10px 25px #160e244d}
 }
 </style>
 </head>
-<body><div class="magic-sky" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><main class="app"><button type="button" class="top-settings global-settings" aria-label="開啟花費類別設定" title="花費類別設定" onclick="openCategorySettings()">⚙</button>
+<body><div class="magic-sky" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><main class="app"><button type="button" class="top-settings global-settings" aria-label="開啟共用設定" title="共用設定" onclick="openAppSettings()">⚙</button>
 <nav><button class="active" data-view="home">總覽</button><button data-view="records">收支紀錄</button><button data-view="annualBudget">預算編制</button><button data-view="investments">投資</button><button data-view="goals">存款目標</button></nav>
 <section id="home" class="view active">
- <div class="guardian-banner integrated" role="img" aria-label="金髮與藍髮守護者共同管理命運金庫"><div class="guardian-topbar"><div class="moon-picker"><span>☽</span><input class="month" id="monthPicker" type="month" aria-label="選擇月份"></div></div><div class="guardian-copy"><span>THE KEEPERS</span><strong>命運金庫</strong><small>讓每一筆選擇，靠近想要的未來</small></div><div class="guardian-badge angel">✧ 存款守護者</div><div class="guardian-badge demon">♠ 花費守門人</div><div class="hero"><article class="card balance"><div class="eyebrow">本月還可以安心花</div><div class="big" id="safeToSpend">$0</div><div class="balance-grid"><div><small>本月收入</small><strong id="incomeTotal">$0</strong></div><div><small>已預留存款</small><strong id="savingPlan">$0</strong></div><div><small>本月已花費</small><strong id="spentTotal">$0</strong></div></div></article><article class="card home-goals-card"><div class="row-between home-goals-title"><div class="eyebrow">未完成存款目標</div><span class="pill" id="unfinishedGoalCount">0 項</span></div><div id="homeGoalList" class="home-goal-list"></div></article></div></div>
+ <div class="guardian-banner integrated" role="img" aria-label="金髮與藍髮守護者共同管理命運金庫"><div class="guardian-topbar"><div class="moon-picker"><span>☽</span><input class="month" id="monthPicker" type="month" aria-label="選擇月份"></div></div><span class="guardian-head angel" aria-hidden="true"></span><span class="guardian-head demon" aria-hidden="true"></span><div class="guardian-copy"><span>THE KEEPERS</span><strong>命運金庫</strong><small>讓每一筆選擇，靠近想要的未來</small></div><div class="guardian-badge angel">✧ 存款守護者</div><div class="guardian-badge demon">♠ 花費守門人</div><div class="hero"><article class="card balance"><div class="eyebrow">本月還可以安心花</div><div class="big" id="safeToSpend">$0</div><div class="balance-grid"><div><small>本月收入</small><strong id="incomeTotal">$0</strong></div><div><small>已預留存款</small><strong id="savingPlan">$0</strong></div><div><small>本月已花費</small><strong id="spentTotal">$0</strong></div></div></article><article class="card home-goals-card"><div class="row-between home-goals-title"><div class="eyebrow">未完成存款目標</div><span class="pill" id="unfinishedGoalCount">0 項</span></div><div id="homeGoalList" class="home-goal-list"></div></article></div></div>
 </section>
-<section id="records" class="view"><div class="summary-strip"><article class="card mini"><span class="eyebrow">收入</span><strong id="recIncome">$0</strong></article><article class="card mini"><span class="eyebrow">支出</span><strong id="recExpense">$0</strong></article><article class="card mini"><span class="eyebrow">固定支出</span><strong id="recFixed">$0</strong></article><article class="card mini"><span class="eyebrow">本月結餘</span><strong id="recNet">$0</strong></article></div><div class="records-layout"><article class="card"><h2 class="section-title">分類花費</h2><div class="budget-list" id="budgetList"></div></article><article class="card"><div class="panel-head"><h2 class="section-title">本月收支紀錄</h2><button class="btn" onclick="openTransaction()">＋ 新增</button></div><div id="allTransactions"></div></article></div></section>
+<section id="records" class="view"><div class="summary-strip records-summary"><article class="card mini"><span class="eyebrow">收入</span><strong id="recIncome">$0</strong></article><article class="card mini"><span class="eyebrow">記帳支出</span><strong id="recExpense">$0</strong></article><article class="card mini"><span class="eyebrow">固定支出</span><strong id="recFixed">$0</strong></article><article class="card mini"><span class="eyebrow">本月支出預算</span><strong id="recBudget">$0</strong></article><article class="card mini"><span class="eyebrow" id="recVarianceLabel">預算差異</span><strong id="recVariance">$0</strong></article><article class="card mini"><span class="eyebrow">本月結餘</span><strong id="recNet">$0</strong></article></div><div class="records-layout"><article class="card"><h2 class="section-title">分類花費</h2><div class="budget-list" id="budgetList"></div></article><article class="card"><div class="panel-head"><h2 class="section-title">本月收支紀錄</h2><button class="btn" onclick="openTransaction()">＋ 新增</button></div><div id="allTransactions"></div></article></div></section>
 <section id="annualBudget" class="view"><div class="summary-strip annual-summary"><article class="card mini"><span class="eyebrow">全年預計收入</span><strong id="annualIncome">$0</strong></article><article class="card mini"><span class="eyebrow">全年預計支出</span><strong id="annualExpense">$0</strong></article><article class="card mini"><span class="eyebrow">全年預計結餘</span><strong id="annualNet">$0</strong></article></div><article class="card budget-fixed-panel"><div class="panel-head"><div><h2 class="section-title">固定收入與支出</h2><div class="sub">固定支出可選擇右上角設定的共用花費類別</div></div><div class="goal-actions"><button type="button" class="btn ghost" onclick="applyFixedIncomeToYear()">收入套用全年</button><button type="button" class="btn" onclick="saveSettings()">儲存固定設定</button></div></div><div class="budget-fixed-grid"><div><div class="form-grid income-form"><label>薪資收入<input id="salaryIncome" type="number" min="0" placeholder="例如 50000" oninput="updateNetIncomePreview()"></label><label>勞健保費<input id="insuranceDeduction" type="number" min="0" placeholder="例如 2500" oninput="updateNetIncomePreview()"></label><label>職工福利金提撥<input id="welfareDeduction" type="number" min="0" placeholder="例如 300" oninput="updateNetIncomePreview()"></label><label>每月預計存款<input id="baseSaving" type="number" min="0" placeholder="例如 10000"></label><div class="net-income-preview full"><span>真正固定收入</span><strong id="netFixedIncome">$0</strong><small>薪資收入 − 勞健保費 − 職工福利金提撥</small></div></div><div class="panel-head compact-head"><h3>固定支出</h3><div class="goal-actions"><button id="applyFixedExpensesButton" type="button" class="btn ghost" onclick="applyFixedExpensesToYear(this)">套用全年</button><button type="button" class="btn ghost" onclick="addSettingRow('fixed')">＋ 增加</button></div></div><div id="fixedSettings" class="settings-list"></div><div id="fixedApplyStatus" class="sub" role="status" aria-live="polite"></div></div></div></article><article class="card" style="margin-top:18px"><div class="annual-toolbar"><div><h2 class="section-title">整年度預算編制</h2><div class="sub">費用項目依花費類別呈現，輸入後會自動儲存在這台裝置</div></div><div class="annual-year">預算年度 <input id="budgetYear" type="number" min="2000" max="2100"></div></div><div class="panel-head"><div class="sub">「套用全年」會把該列 1 月金額填入 12 個月</div><div class="goal-actions"><button class="btn ghost" onclick="addAnnualBudgetRow('income')">＋ 收入項目</button></div></div><div id="annualBudgetTable" class="annual-table-wrap"></div><div class="annual-tip">提示：手機可左右滑動查看 1–12 月。所有金額皆以新台幣計算。</div></article></section>
 <section id="investments" class="view"><div class="summary-strip"><article class="card mini"><span class="eyebrow">投資帳戶餘額</span><strong id="invCashBalance">$0</strong></article><article class="card mini"><span class="eyebrow">本月轉入</span><strong id="invMonthTransfer">$0</strong></article><article class="card mini"><span class="eyebrow">投資商品市值</span><strong id="invValue">$0</strong></article><article class="card mini"><span class="eyebrow">未實現損益</span><strong id="invGain">$0</strong></article></div><div class="investment-layout"><article class="card"><div class="panel-head"><div><h2 class="section-title">投資持倉</h2><div class="sub">持倉累計至所選月份月底</div></div><div class="investment-actions"><button class="btn ghost" onclick="openInvestment('cashOpening')">期初餘額</button><button class="btn ghost" onclick="openInvestment('positionOpening')">現有標的</button><button class="btn ghost" onclick="openInvestment('transfer')">＋ 轉入</button><button class="btn" onclick="openInvestment('buy')">＋ 買進</button><button class="btn" id="updatePricesBtn" onclick="updateMarketPrices()">↻ 更新價格</button></div></div><div id="holdingList" class="holding-list"></div><div class="investment-help">更新「目前價格」後會自動儲存，並重新計算未實現損益。投資帳戶餘額與持倉分開計算。</div><div class="investment-help" id="priceUpdateStatus">尚未從官方行情更新</div></article><article class="card"><div class="panel-head"><div><h2 class="section-title">本月投資紀錄</h2><div class="sub" id="investmentCash">轉入增加帳戶餘額，買進則扣除餘額</div></div></div><div id="investmentLedger" class="investment-ledger"></div></article></div></section>
 <section id="goals" class="view"><article class="card"><div class="panel-head"><div><h2 class="section-title">我的存款目標</h2><div class="sub">把大目標拆成每月可以完成的小步驟</div></div><button class="btn" onclick="openGoal()">＋ 新增目標</button></div><div id="goalList"></div></article></section>
 </main><button class="fab" onclick="openTransaction()">＋ 記一筆</button>
-<dialog id="categorySettingsDialog"><form class="modal" method="dialog"><div class="panel-head"><div><h2>花費類別設定</h2><div class="sub">所有頁面共用這些類別</div></div><button type="button" class="btn ghost" onclick="addSettingRow('budget')">＋ 增加</button></div><div id="budgetSettings" class="settings-list category-settings-list"></div><div class="modal-actions"><button class="btn ghost" type="button" onclick="cancelCategorySettings()">取消</button><button class="btn" type="button" onclick="saveCategorySettings()">儲存類別</button></div></form></dialog>
+<dialog id="categorySettingsDialog"><form class="modal" method="dialog"><h2>共用設定</h2><div class="sub">固定收入、固定支出與花費類別會套用到整個 APP</div><div id="appSettingsContent"></div><section class="app-settings-categories"><div class="panel-head"><div><h3>花費類別</h3><div class="sub">固定支出、收支紀錄與年度預算共用</div></div><button type="button" class="btn ghost" onclick="addSettingRow('budget')">＋ 增加</button></div><div id="budgetSettings" class="settings-list category-settings-list"></div></section><div class="modal-actions"><button class="btn ghost" type="button" onclick="cancelCategorySettings()">取消</button><button class="btn" type="button" onclick="saveAllSettings()">儲存全部設定</button></div></form></dialog>
 <dialog id="txDialog"><form class="modal" method="dialog" id="txForm"><h2>新增收支</h2><div class="form-grid"><label>類型<select id="txType"><option value="expense">支出</option><option value="income">收入</option><option value="saving">存入目標</option></select></label><label>金額<input id="txAmount" type="number" min="1" required></label><label id="txCategoryWrap">分類<select id="txCategory"></select></label><label>日期<input id="txDate" type="date" required></label><label class="full">說明<input id="txNote" placeholder="例如：午餐、薪水"></label><label class="full" id="goalSelectWrap" hidden>存款目標<select id="txGoal"></select></label></div><div class="modal-actions"><button class="btn ghost" type="button" onclick="closeModal(this)">取消</button><button class="btn" value="default" onclick="submitTransaction(event)">儲存</button></div></form></dialog>
 <dialog id="goalDialog"><form class="modal" method="dialog"><h2>新增存款目標</h2><div class="form-grid"><label class="full">目標名稱<input id="goalName" required placeholder="例如：日本旅行、緊急備用金"></label><label>目標金額<input id="goalTarget" type="number" min="1" required></label><label>目前已有<input id="goalCurrent" type="number" min="0" value="0"></label><label class="full">希望完成日期<input id="goalDeadline" type="date"></label></div><div class="modal-actions"><button class="btn ghost" type="button" onclick="closeModal(this)">取消</button><button class="btn" value="default" onclick="submitGoal(event)">建立目標</button></div></form></dialog>
 <dialog id="investmentDialog"><form class="modal" method="dialog" id="investmentForm"><h2 id="investmentDialogTitle">轉入投資資金</h2><div class="form-grid"><label>類型<select id="investmentType"><option value="cashOpening">投資帳戶期初餘額</option><option value="positionOpening">新增現有標的</option><option value="transfer">轉入資金</option><option value="buy">買進投資</option></select></label><label>日期<input id="investmentDate" type="date" required></label><label class="full transfer-field">轉入金額<input id="investmentAmount" type="number" min="1" step="1" placeholder="例如 10000"></label><label class="asset-field">標的代號<input id="investmentTicker" placeholder="例如 0050、AAPL"></label><label class="asset-field">標的名稱<input id="investmentName" placeholder="例如 元大台灣50、台積電"></label><label class="asset-field">持有數量<input id="investmentUnits" type="number" min="0.0001" step="0.0001"></label><label class="buy-field">單位成交價<input id="investmentPrice" type="number" min="0.01" step="0.01"></label><label class="buy-field full">手續費<input id="investmentFee" type="number" min="0" step="1" value="0"></label><label class="position-opening-field">期初總成本<input id="investmentOpeningCost" type="number" min="0" step="1"></label><label class="cash-opening-field full">投資帳戶期初餘額<input id="investmentOpeningCash" type="number" min="0" step="1" placeholder="尚未開始記錄前，帳戶內可用的現金"></label><label class="position-opening-field">期初目前單價<input id="investmentOpeningPrice" type="number" min="0" step="0.01" placeholder="可留空"></label><label class="full">備註<input id="investmentNote" placeholder="選填"></label></div><div class="modal-actions"><button class="btn ghost" type="button" onclick="closeModal(this)">取消</button><button class="btn" value="default" onclick="submitInvestment(event)">儲存</button></div></form></dialog>
@@ -182,7 +347,7 @@ nav{width:100%;justify-content:center;background:#2a2039;border-color:#9b779d;bo
 const KEY='littleVault_v1';
 const icons=['🍜','🚌','🛍️','🎬','🏠','📱','💡','💊','📚','✨'];
 const defaults={income:0,salaryIncome:0,insuranceDeduction:0,welfareDeduction:0,saving:0,fixed:[{name:'房租／房貸',amount:0},{name:'手機網路',amount:0},{name:'訂閱服務',amount:0}],budgets:[{name:'餐飲',amount:8000,icon:'🍜'},{name:'交通',amount:3000,icon:'🚌'},{name:'購物',amount:3000,icon:'🛍️'},{name:'娛樂',amount:2000,icon:'🎬'}],transactions:[],goals:[],investmentOpenings:[],investmentTransfers:[],investmentPurchases:[],investmentPrices:{},investmentPriceUpdatedAt:'',annualBudgets:{}};
-let data=load(); let selectedMonth='',selectedBudgetYear='',categorySnapshot=[];
+let data=load(); let selectedMonth='',selectedBudgetYear='',categorySnapshot=[],settingsSnapshot=null;
 function load(){try{const saved=JSON.parse(localStorage.getItem(KEY)||'{}'),merged=Object.assign({},defaults,saved),oldOpenings=Array.isArray(saved.investmentOpenings)?saved.investmentOpenings:[];if(saved.salaryIncome==null)merged.salaryIncome=+saved.income||0;merged.insuranceDeduction=+merged.insuranceDeduction||0;merged.welfareDeduction=+merged.welfareDeduction||0;merged.income=Math.max(0,(+merged.salaryIncome||0)-merged.insuranceDeduction-merged.welfareDeduction);merged.investmentOpenings=oldOpenings.flatMap(x=>{if(x.entryType)return[x];const rows=[];if(+x.cash||(!x.units&&!x.ticker&&!x.name))rows.push({id:x.id+'-cash',entryType:'cash',date:x.date,cash:+x.cash||0,note:x.note||''});if(+x.units||x.ticker||x.name)rows.push({id:x.id+'-position',entryType:'position',date:x.date,ticker:x.ticker||'',name:x.name||'',units:+x.units||0,cost:+x.cost||0,note:x.note||''});return rows});merged.investmentTransfers=Array.isArray(saved.investmentTransfers)?saved.investmentTransfers:[];merged.investmentPurchases=Array.isArray(saved.investmentPurchases)?saved.investmentPurchases:[];merged.investmentPrices=saved.investmentPrices&&typeof saved.investmentPrices==='object'?saved.investmentPrices:{};merged.annualBudgets=saved.annualBudgets&&typeof saved.annualBudgets==='object'?saved.annualBudgets:{};return merged}catch{return structuredClone(defaults)}}
 function persist(){localStorage.setItem(KEY,JSON.stringify(data))}
 function uid(){return globalThis.crypto?.randomUUID?.()||('id-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,9))}
@@ -192,8 +357,9 @@ function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&l
 function monthTx(){return data.transactions.filter(t=>t.date?.slice(0,7)===selectedMonth)}
 function fixedTotal(){return data.fixed.reduce((s,x)=>s+(+x.amount||0),0)}
 function expenseTotal(){return monthTx().filter(t=>t.type==='expense').reduce((s,t)=>s+(+t.amount||0),0)}
-function render(){const tx=monthTx(), exp=expenseTotal(), inc=(+data.income||0)+tx.filter(t=>t.type==='income').reduce((s,t)=>s+(+t.amount||0),0), fixed=fixedTotal(),invested=monthInvestmentTransfers().reduce((s,t)=>s+(+t.amount||0),0), safe=inc-fixed-(+data.saving||0)-exp-invested; id('safeToSpend').textContent=money(safe);id('safeToSpend').classList.toggle('danger',safe<0);id('incomeTotal').textContent=money(inc);id('savingPlan').textContent=money(data.saving);id('spentTotal').textContent=money(exp);renderBudgets(tx);renderTransactions(tx);renderGoals();renderInvestments();id('recIncome').textContent=money(inc);id('recExpense').textContent=money(exp);id('recFixed').textContent=money(fixed);id('recNet').textContent=money(inc-fixed-exp-(+data.saving||0)-invested)}
-function renderBudgets(tx){const root=id('budgetList'),year=selectedMonth.slice(0,4),monthIndex=(+selectedMonth.slice(5,7)||1)-1,annual=Array.isArray(data.annualBudgets[year])?data.annualBudgets[year]:[];if(!data.budgets.length){root.innerHTML='<div class="empty">尚未設定花費類別</div>';return}root.innerHTML=data.budgets.map((b,i)=>{const used=tx.filter(t=>t.type==='expense'&&t.category===b.name).reduce((s,t)=>s+(+t.amount||0),0),limit=annual.filter(r=>r.type==='expense'&&r.name===b.name).reduce((s,r)=>s+(+r.months?.[monthIndex]||0),0),p=limit?Math.min(100,used/limit*100):0;return `<div class="budget-item"><div class="budget-top"><div class="icon">${b.icon||icons[i%icons.length]}</div><div class="budget-name"><strong>${esc(b.name)}</strong><small>${limit?'剩下 '+money(Math.max(0,limit-used)):'本月尚未編列預算'}</small></div><div class="money"><strong>${money(used)}</strong>${limit?`<small> / ${money(limit)}</small>`:''}</div></div><div class="progress ${p>85?'warn':''}"><i style="width:${p}%"></i></div></div>`}).join('')}
+function selectedMonthExpenseBudget(){const year=selectedMonth.slice(0,4),monthIndex=(+selectedMonth.slice(5,7)||1)-1,rows=Array.isArray(data.annualBudgets[year])?data.annualBudgets[year]:[];return rows.filter(r=>r.type==='expense').reduce((sum,row)=>sum+(+row.months?.[monthIndex]||0),0)}
+function render(){const tx=monthTx(), exp=expenseTotal(), inc=(+data.income||0)+tx.filter(t=>t.type==='income').reduce((s,t)=>s+(+t.amount||0),0), fixed=fixedTotal(),actualExpense=fixed+exp,budget=selectedMonthExpenseBudget(),variance=budget-actualExpense,invested=monthInvestmentTransfers().reduce((s,t)=>s+(+t.amount||0),0), safe=inc-fixed-(+data.saving||0)-exp-invested; id('safeToSpend').textContent=money(safe);id('safeToSpend').classList.toggle('danger',safe<0);id('incomeTotal').textContent=money(inc);id('savingPlan').textContent=money(data.saving);id('spentTotal').textContent=money(exp);renderBudgets(tx);renderTransactions(tx);renderGoals();renderInvestments();id('recIncome').textContent=money(inc);id('recExpense').textContent=money(exp);id('recFixed').textContent=money(fixed);id('recBudget').textContent=budget?money(budget):'尚未編列';id('recVarianceLabel').textContent=budget?(variance>=0?'剩餘預算':'預算超支'):'預算差異';id('recVariance').textContent=budget?money(Math.abs(variance)):'—';id('recVariance').classList.toggle('danger',budget>0&&variance<0);id('recNet').textContent=money(inc-fixed-exp-(+data.saving||0)-invested)}
+function renderBudgets(tx){const root=id('budgetList'),year=selectedMonth.slice(0,4),monthIndex=(+selectedMonth.slice(5,7)||1)-1,annual=Array.isArray(data.annualBudgets[year])?data.annualBudgets[year]:[];if(!data.budgets.length){root.innerHTML='<div class="empty">尚未設定花費類別</div>';return}root.innerHTML=data.budgets.map((b,i)=>{const recorded=tx.filter(t=>t.type==='expense'&&t.category===b.name).reduce((s,t)=>s+(+t.amount||0),0),fixed=data.fixed.filter(item=>item.category===b.name).reduce((s,item)=>s+(+item.amount||0),0),used=recorded+fixed,limit=annual.filter(r=>r.type==='expense'&&r.name===b.name).reduce((s,r)=>s+(+r.months?.[monthIndex]||0),0),variance=limit-used,p=limit?Math.min(100,used/limit*100):0,status=!limit?'本月尚未編列預算':variance>=0?'剩餘 '+money(variance):'超支 '+money(Math.abs(variance));return `<div class="budget-item"><div class="budget-top"><div class="icon">${b.icon||icons[i%icons.length]}</div><div class="budget-name"><strong>${esc(b.name)}</strong><small class="${limit&&variance<0?'danger':''}">${status}</small></div><div class="money"><strong>${money(used)}</strong>${limit?`<small> / ${money(limit)}</small>`:''}</div></div><div class="progress ${p>85?'warn':''}"><i style="width:${p}%"></i></div></div>`}).join('')}
 function txHtml(t){const sym=t.type==='income'?'+':t.type==='saving'?'↗':'−', icon=t.type==='income'?'💰':t.type==='saving'?'🎯':(data.budgets.find(b=>b.name===t.category)?.icon||'🧾');return `<div class="tx"><div class="icon">${icon}</div><div><strong>${esc(t.note||t.category||'未命名')}</strong><small>${esc(t.category||'')} · ${esc(t.date)}</small></div><div class="amount ${t.type==='expense'?'danger':''}">${sym}${money(t.amount)} <button class="delete" onclick="deleteTx('${t.id}')">×</button></div></div>`}
 function renderTransactions(tx){const sorted=[...tx].sort((a,b)=>b.date.localeCompare(a.date));id('allTransactions').innerHTML=sorted.length?sorted.map(txHtml).join(''):'<div class="empty">本月沒有收支紀錄</div>'}
 function renderGoals(){const gs=data.goals||[],unfinished=gs.filter(g=>(+g.current||0)<(+g.target||0));id('unfinishedGoalCount').textContent=unfinished.length+' 項';const home=id('homeGoalList');home.style.setProperty('--goal-count',Math.max(1,unfinished.length));home.innerHTML=unfinished.length?unfinished.map(g=>{const p=Math.min(100,g.current/g.target*100||0);return `<div class="home-goal-row"><div class="home-goal-head"><strong>${esc(g.name)}</strong><span>${Math.round(p)}%</span></div><div class="home-goal-money">${money(g.current)} <small>/ ${money(g.target)}</small></div><div class="progress"><i style="width:${p}%"></i></div></div>`}).join(''):'<div class="empty home-goal-empty">目前沒有未完成目標</div>';id('goalList').innerHTML=gs.length?gs.map(g=>{const p=Math.min(100,g.current/g.target*100||0);return `<div class="budget-item goal-card"><div class="goal-head"><div><strong>${esc(g.name)}</strong><div class="sub">${g.deadline?'預計 '+g.deadline+' 完成':'未設定期限'}</div></div><div class="goal-actions"><span class="pill">${Math.round(p)}%</span><button class="delete" onclick="deleteGoal('${g.id}')">×</button></div></div><div class="goal-amount">${money(g.current)} <small style="font-size:14px;color:var(--muted)">/ ${money(g.target)}</small></div><div class="progress"><i style="width:${p}%"></i></div></div>`}).join(''):'<div class="empty">建立第一個想完成的存款目標吧</div>'}
@@ -233,9 +399,10 @@ function updateAnnualName(row,value){annualRows()[row].name=value.trim()||'未�
 function addAnnualBudgetRow(type){const rows=annualRows(),item=newAnnualRow(type,type==='income'?'新收入':'新費用'),last=rows.reduce((found,r,i)=>r.type===type?i:found,-1);rows.splice(last+1,0,item);persist();renderAnnualBudget();requestAnimationFrame(()=>{const input=document.querySelector(`[data-annual-id="${item.id}"] .budget-name`);if(input){input.scrollIntoView({behavior:'smooth',block:'center',inline:'nearest'});input.focus();input.select()}})}
 function fillAnnualRow(row){const item=annualRows()[row],amount=+item.months[0]||0;if(!amount&&!confirm('1 月目前是 0，確定要將全年都設為 0 嗎？'))return;item.months=Array(12).fill(amount);persist();renderAnnualBudget()}
 function deleteAnnualRow(row){const item=annualRows()[row];if(!confirm(`刪除「${item.name}」及整年度金額？`))return;annualRows().splice(row,1);persist();renderAnnualBudget()}
-function openCategorySettings(){categorySnapshot=structuredClone(data.budgets);renderSettingRows('budget');id('categorySettingsDialog').showModal()}
-function cancelCategorySettings(){data.budgets=structuredClone(categorySnapshot);id('categorySettingsDialog').close()}
+function openAppSettings(){categorySnapshot=structuredClone(data.budgets);settingsSnapshot={budgets:structuredClone(data.budgets),fixed:structuredClone(data.fixed),salaryIncome:data.salaryIncome,insuranceDeduction:data.insuranceDeduction,welfareDeduction:data.welfareDeduction,saving:data.saving,income:data.income};renderSettings();id('categorySettingsDialog').showModal()}
+function cancelCategorySettings(){if(settingsSnapshot)Object.assign(data,structuredClone(settingsSnapshot));id('categorySettingsDialog').close()}
 function saveCategorySettings(){const names=Array.from(document.querySelectorAll('#budgetSettings .setting-row input')).map(input=>input.value.trim()).filter(Boolean);if(!names.length)return alert('請至少保留一個花費類別');if(new Set(names).size!==names.length)return alert('花費類別名稱不能重複');const previous=categorySnapshot.map(item=>item.name);data.budgets=names.map((name,index)=>({name,icon:categorySnapshot[index]?.icon||icons[index%icons.length]}));previous.forEach((oldName,index)=>{const newName=names[index];if(!newName||newName===oldName)return;data.fixed.forEach(item=>{if(item.category===oldName)item.category=newName});data.transactions.forEach(item=>{if(item.category===oldName)item.category=newName});Object.values(data.annualBudgets).forEach(rows=>{if(Array.isArray(rows))rows.forEach(row=>{if(row.type==='expense'&&row.name===oldName)row.name=newName})})});persist();id('categorySettingsDialog').close();render();if(id('annualBudget').classList.contains('active')){renderSettings();renderAnnualBudget()}}
+function saveAllSettings(){syncFixedSettings();saveCategorySettings()}
 function renderSettingRows(type){const arr=type==='fixed'?data.fixed:data.budgets;if(type==='fixed'){const options='<option value="">選擇類別</option>'+data.budgets.map(item=>`<option value="${esc(item.name)}">${esc(item.name)}</option>`).join('');id('fixedSettings').innerHTML=arr.map(x=>`<div class="setting-row fixed-category-row"><input value="${esc(x.name)}" aria-label="固定支出名稱" placeholder="支出名稱"><select aria-label="花費類別">${options.replace(`value="${esc(x.category||'')}"`,`value="${esc(x.category||'')}" selected`)}</select><input type="number" min="0" value="${x.amount||''}" placeholder="每月金額"><button class="delete" onclick="removeSetting('fixed',${data.fixed.indexOf(x)})">×</button></div>`).join('')||'<div class="empty">尚未新增固定支出</div>';return}id('budgetSettings').innerHTML=arr.map((x,i)=>`<div class="setting-row category-only-row"><input value="${esc(x.name)}" aria-label="類別名稱" placeholder="類別名稱"><button class="delete" onclick="removeSetting('budget',${i})">×</button></div>`).join('')||'<div class="empty">尚未建立花費類別</div>'}
 function addSettingRow(type){(type==='fixed'?data.fixed:data.budgets).push(type==='fixed'?{name:'',category:'',amount:0}:{name:'新分類',icon:icons[data.budgets.length%icons.length]});renderSettingRows(type)}
 function removeSetting(type,i){(type==='fixed'?data.fixed:data.budgets).splice(i,1);renderSettingRows(type);if(type==='budget')renderSettingRows('fixed')}
@@ -267,5 +434,5 @@ async function updateMarketPrices(){const positions=investmentPositions(),status
 function deleteInvestment(type,itemId){if(!confirm('刪除這筆投資紀錄？'))return;if(type==='opening')data.investmentOpenings=data.investmentOpenings.filter(x=>x.id!==itemId);else if(type==='transfer')data.investmentTransfers=data.investmentTransfers.filter(x=>x.id!==itemId);else data.investmentPurchases=data.investmentPurchases.filter(x=>x.id!==itemId);persist();render()}
 function showView(name){if(document.activeElement instanceof HTMLElement)document.activeElement.blur();document.querySelectorAll('.view').forEach(x=>x.classList.toggle('active',x.id===name));document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('active',x.dataset.view===name));if(name==='annualBudget'){renderSettings();renderAnnualBudget()}requestAnimationFrame(()=>{window.scrollTo({top:0,left:0,behavior:'auto'});document.querySelectorAll('.annual-table-wrap').forEach(x=>x.scrollLeft=0)})}
 function id(x){return document.getElementById(x)}
-document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>showView(b.dataset.view));document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d){d.querySelector('form')?.reset();d.close()}}));id('txType').onchange=refreshTxOptions;id('investmentType').onchange=refreshInvestmentForm;const now=new Date();selectedMonth=now.toISOString().slice(0,7);selectedBudgetYear=String(now.getFullYear());id('monthPicker').value=selectedMonth;id('budgetYear').value=selectedBudgetYear;id('budgetYear').onchange=e=>{selectedBudgetYear=String(Math.min(2100,Math.max(2000,+e.target.value||now.getFullYear())));e.target.value=selectedBudgetYear;renderAnnualBudget()};id('monthPicker').onchange=e=>{selectedMonth=e.target.value;render()};render();
+id('appSettingsContent').appendChild(document.querySelector('.budget-fixed-panel'));document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>showView(b.dataset.view));document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d){if(d.id==='categorySettingsDialog')cancelCategorySettings();else{d.querySelector('form')?.reset();d.close()}}}));id('txType').onchange=refreshTxOptions;id('investmentType').onchange=refreshInvestmentForm;const now=new Date();selectedMonth=now.toISOString().slice(0,7);selectedBudgetYear=String(now.getFullYear());id('monthPicker').value=selectedMonth;id('budgetYear').value=selectedBudgetYear;id('budgetYear').onchange=e=>{selectedBudgetYear=String(Math.min(2100,Math.max(2000,+e.target.value||now.getFullYear())));e.target.value=selectedBudgetYear;renderAnnualBudget()};id('monthPicker').onchange=e=>{selectedMonth=e.target.value;render()};render();
 </script></body></html>
