@@ -775,7 +775,8 @@ function annualRows(){
     if(row.type!==type)return true;
     visible++;
     const hasAmount=Array.isArray(row.months)&&row.months.some(value=>(+value||0)!==0);
-    if(type==='expense'?(hasAmount||categoryNames.includes(row.name)):(visible<=3||hasAmount))return true;
+    // 分類預算必須以目前「共用設定」為準；舊分類即使曾填過金額，也不再混入新版年度預算。
+    if(type==='expense'?categoryNames.includes(row.name):(visible<=3||hasAmount))return true;
     changed=true;
     return false
    })
