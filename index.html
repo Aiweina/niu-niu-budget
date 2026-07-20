@@ -143,6 +143,28 @@ nav{width:100%;justify-content:center;background:#2a2039;border-color:#9b779d;bo
 @media(max-width:760px){html,body{width:100%;max-width:100%;overflow-x:hidden}.app,.view,.card,.grid2,.records-layout,.investment-layout{max-width:100%;min-width:0}.app,.app:has(#home.active){padding-bottom:calc(118px + env(safe-area-inset-bottom));overflow-x:hidden}.view{padding-bottom:20px}.view>*:last-child{margin-bottom:18px}input,select,textarea,.annual-table input,.budget-fixed-panel .setting-row input{font-size:16px!important}.annual-table-wrap{width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}.fab{bottom:calc(70px + env(safe-area-inset-bottom))}nav{bottom:calc(8px + env(safe-area-inset-bottom));max-width:calc(100% - 20px)}}
 @media(max-width:760px){.setting-row.fixed-category-row{grid-template-columns:1fr 1fr 34px}.setting-row.fixed-category-row>input:first-child{grid-column:1/-1}.setting-row.category-only-row{grid-template-columns:1fr 34px}}
 @media(max-width:760px){.global-settings{top:10px;right:10px}}
+/* 手機版年度預算：改用魔幻卡片，不再縮放桌面橫向表格 */
+.annual-mobile{display:none}
+@media(max-width:760px){
+ #annualBudgetTable .annual-table{display:none}
+ #annualBudgetTable{overflow:visible;border:0;background:transparent;box-shadow:none!important}
+ .annual-mobile{display:grid;gap:12px}
+ .annual-mobile-group{display:grid;gap:9px}
+ .annual-mobile-title{padding:9px 13px;border:1px solid #d2b46d;border-radius:12px 4px;background:linear-gradient(135deg,#493450,#2c233c);color:#ffe8aa;font-size:18px;font-weight:900;letter-spacing:1px;box-shadow:0 3px 0 #171020}
+ .annual-mobile-subtitle{padding:5px 11px;color:#e9cfe6;font-size:13px;font-weight:800}
+ .annual-mobile-row{padding:13px;border:1px solid #b68daf;border-radius:15px 5px;background:linear-gradient(145deg,#fffaf0,#f5e8ef);box-shadow:0 4px 0 #2a1c31,0 0 12px #c390bc30}
+ .annual-mobile-head{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:10px}
+ .annual-mobile-name{min-width:0;color:#533755;font-size:18px;font-weight:900}
+ .annual-mobile-name input{margin:0;font-size:16px!important}
+ .annual-mobile-actions{display:flex;align-items:center;gap:5px;flex:none}
+ .annual-mobile-actions .btn{padding:7px 9px;font-size:12px}
+ .annual-month-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+ .annual-month-grid label{font-size:11px;color:#76506f;text-align:center}
+ .annual-month-grid input{margin-top:3px;padding:8px 5px!important;text-align:right;font-size:15px!important}
+ .annual-mobile-total{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:9px;border-top:1px solid #d8bfd1;color:#76506f;font-size:13px}
+ .annual-mobile-total strong{color:#5b3c60;font-size:17px}
+ .annual-tip{display:none}
+}
 /* 手機首頁：日期使用獨立頂欄，避免文字蓋住守護者人物 */
 @media(max-width:760px){
  #home.active .guardian-banner.integrated{
@@ -798,7 +820,9 @@ function renderAnnualBudget(){
  const head=Array.from({length:12},(_,i)=>`<th>${i+1} 月</th>`).join(''),labels={income:'收入項目',fixedExpense:'固定支出',expense:'分類預算支出'};
  const renderRows=(list,type)=>list.map(r=>{const idx=rows.indexOf(r),locked=type!=='income',nameField=locked?`<span class="annual-name-label" title="請至右上角設定修改名稱">${esc(r.name)}</span>`:`<input class="budget-name" value="${esc(r.name)}" aria-label="項目名稱" onchange="updateAnnualName(${idx},this.value)">`,months=r.months.map((n,m)=>`<td><input class="budget-month" type="number" min="0" step="1" value="${n||''}" placeholder="0" onchange="updateAnnualMonth(${idx},${m},this.value)"></td>`).join('');return `<tr data-annual-id="${esc(r.id)}"><td>${nameField}</td><td><button class="btn ghost row-delete" onclick="fillAnnualRow(${idx})">套用全年</button></td>${months}<td class="annual-total">${money(annualRowTotal(r))}</td><td>${locked?'':`<button class="delete" aria-label="刪除${esc(r.name)}" onclick="deleteAnnualRow(${idx})">×</button>`}</td></tr>`}).join('');
  const body=['income','fixedExpense','expense'].map(type=>{const list=rows.filter(r=>r.type===type);if(!list.length&&type==='fixedExpense')return'';let content=renderRows(list,type);if(type==='fixedExpense'){const groups={};list.forEach(row=>{const category=data.fixed.find(item=>item.name===row.name)?.category||'未分類';(groups[category]||(groups[category]=[])).push(row)});content=Object.entries(groups).map(([category,items])=>`<tr class="budget-subgroup"><td colspan="16">${esc(category)}</td></tr>${renderRows(items,type)}`).join('')}return `<tr class="budget-group"><td colspan="16">${labels[type]}</td></tr>${content}`}).join('');
- id('annualBudgetTable').innerHTML=`<table class="annual-table"><thead><tr><th>項目</th><th>快速填入</th>${head}<th>全年合計</th><th></th></tr></thead><tbody>${body}</tbody></table>`
+ const renderMobileRows=(list,type)=>list.map(r=>{const idx=rows.indexOf(r),locked=type!=='income',name=locked?`<span>${esc(r.name)}</span>`:`<input value="${esc(r.name)}" aria-label="項目名稱" onchange="updateAnnualName(${idx},this.value)">`,months=r.months.map((n,m)=>`<label>${m+1} 月<input type="number" min="0" step="1" value="${n||''}" placeholder="0" onchange="updateAnnualMonth(${idx},${m},this.value)"></label>`).join('');return `<article class="annual-mobile-row" data-annual-id="${esc(r.id)}"><div class="annual-mobile-head"><div class="annual-mobile-name">${name}</div><div class="annual-mobile-actions"><button class="btn ghost" onclick="fillAnnualRow(${idx})">套用全年</button>${locked?'':`<button class="delete" aria-label="刪除${esc(r.name)}" onclick="deleteAnnualRow(${idx})">×</button>`}</div></div><div class="annual-month-grid">${months}</div><div class="annual-mobile-total"><span>全年合計</span><strong>${money(annualRowTotal(r))}</strong></div></article>`}).join('');
+ const mobile=['income','fixedExpense','expense'].map(type=>{const list=rows.filter(r=>r.type===type);if(!list.length&&type==='fixedExpense')return'';let content=renderMobileRows(list,type);if(type==='fixedExpense'){const groups={};list.forEach(row=>{const category=data.fixed.find(item=>item.name===row.name)?.category||'未分類';(groups[category]||(groups[category]=[])).push(row)});content=Object.entries(groups).map(([category,items])=>`<div class="annual-mobile-subtitle">${esc(category)}</div>${renderMobileRows(items,type)}`).join('')}return `<section class="annual-mobile-group"><div class="annual-mobile-title">${labels[type]}</div>${content}</section>`}).join('');
+ id('annualBudgetTable').innerHTML=`<table class="annual-table"><thead><tr><th>項目</th><th>快速填入</th>${head}<th>全年合計</th><th></th></tr></thead><tbody>${body}</tbody></table><div class="annual-mobile">${mobile}</div>`
 }
 function updateAnnualMonth(row,month,value){annualRows()[row].months[month]=Math.max(0,+value||0);persist();renderAnnualBudget()}
 function updateAnnualName(row,value){annualRows()[row].name=value.trim()||'未命名項目';persist();renderAnnualBudget()}
