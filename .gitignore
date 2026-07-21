@@ -1,3 +1,11 @@
 work/
 assets/*-source.png
 assets/*-transparent.png
+notion_config.local.json
+node_modules/
+.pnpm-store/
+__pycache__/
+*.pyc
+.dev.vars
+.wrangler/
+cloud_public/

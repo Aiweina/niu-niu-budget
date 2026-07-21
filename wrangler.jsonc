@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "little-vault-yenning",
+  "main": "./worker/index.js",
+  "compatibility_date": "2026-07-20",
+  "assets": {
+    "directory": "./cloud_public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "secrets": {
+    "required": ["NOTION_API_TOKEN", "NOTION_PARENT_PAGE_ID", "SYNC_ACCESS_KEY"]
+  }
+}
